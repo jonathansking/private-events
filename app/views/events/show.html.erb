@@ -1,0 +1,13 @@
+<% provide(:title, @event.title) %>
+<h1><%= @event.title %></h1>
+<%= render 'attend_form' if logged_in? %>
+<br>
+<p>Creator: <%= link_to @creator.name, @creator %></p>
+<p>Date: <%= @event.date %></p>
+<p>Location: <%= @event.location %></p>
+<p>Description: <%= @event.description %></p>
+<p>Attendees:
+  <% @attendees.each do |a| %>
+  <li><%= link_to a.name, a %></li>
+  <% end %>
+</p>
